@@ -15,7 +15,7 @@ export class AvailabilityMiddleware implements NestMiddleware {
       'en-US',
       { hour12: true },
     );
-    const endTime = new Date(`2024-01-01T18:00:00`).toLocaleTimeString(
+    const endTime = new Date(`2024-01-01T20:00:00`).toLocaleTimeString(
       'en-US',
       { hour12: true },
     );

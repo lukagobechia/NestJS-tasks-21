@@ -1,7 +1,21 @@
+import { IsNotEmpty, IsNumber, IsString, Min } from 'class-validator';
+
 export class CreateExpenseDto {
-    category: string;
-    productName: string;
-    quantity: number;
-    price: number;
-    totalPrice: number;
+  @IsNotEmpty()
+  @IsString({ message: 'Category must be string' })
+  category: string;
+
+  @IsNotEmpty()
+  @IsString()
+  productName: string;
+
+  @IsNotEmpty()
+  @IsNumber()
+  @Min(0)
+  quantity: number;
+
+  @IsNotEmpty()
+  @IsNumber()
+  @Min(0)
+  price: number;
 }
