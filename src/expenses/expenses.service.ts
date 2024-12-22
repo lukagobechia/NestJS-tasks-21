@@ -1,6 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { CreateExpenseDto } from './dto/create-expense.dto';
 import { UpdateExpenseDto } from './dto/update-expense.dto';
+import { QueryParamsDto } from './dto/queryParams.dto';
 
 @Injectable()
 export class ExpensesService {
@@ -14,6 +15,62 @@ export class ExpensesService {
     },
     {
       id: 2,
+      category: 'New Year',
+      productName: 'Chichilaki',
+      quantity: 50,
+      price: 15,
+    },
+    {
+      id: 3,
+      category: 'New Year',
+      productName: 'Chichilaki',
+      quantity: 50,
+      price: 15,
+    },
+    {
+      id: 4,
+      category: 'New Year',
+      productName: 'Chichilaki',
+      quantity: 50,
+      price: 15,
+    },
+    {
+      id: 5,
+      category: 'New Year',
+      productName: 'Chichilaki',
+      quantity: 50,
+      price: 15,
+    },
+    {
+      id: 6,
+      category: 'New Year',
+      productName: 'Chichilaki',
+      quantity: 50,
+      price: 15,
+    },
+    {
+      id: 7,
+      category: 'New Year',
+      productName: 'Chichilaki',
+      quantity: 50,
+      price: 15,
+    },
+    {
+      id: 8,
+      category: 'New Year',
+      productName: 'Chichilaki',
+      quantity: 50,
+      price: 15,
+    },
+    {
+      id: 9,
+      category: 'New Year',
+      productName: 'Chichilaki',
+      quantity: 50,
+      price: 15,
+    },
+    {
+      id: 10,
       category: 'New Year',
       productName: 'Chichilaki',
       quantity: 50,
@@ -33,8 +90,9 @@ export class ExpensesService {
     return newExpense;
   }
 
-  findAll() {
-    return this.expenses;
+  findAll(query: QueryParamsDto) {
+    const { take, page } = query;
+    return this.expenses.slice((page - 1) * take, take * page);
   }
 
   findOne(id: number) {
